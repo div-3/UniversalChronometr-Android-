@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Universal Chronometer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="new_timer">New timer</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="all_timers">All timers</string>
+
+    <string name="communicate">Share</string>
+    <string name="send">Send</string>
+    <string name="settings">Settings</string>
+
+    //Техт
+    <string name="hello_world">Hello World!</string>
+
+    <string name="autor">Ivan D</string>
+    <string name="e_mail">div-3@mail.ru</string>
+    <string name="text_on_timer_view">Tap \"Start\" button</string>
+    <string name="act_add_new_title">Input Title</string>
+    <string name="add_new_comment">Add comment</string>
+    <string name="intervals">Intervals:</string>
+    <string name="wrong_intervals">Wrong interval values!</string>
+    <string name="wrong_title">Input title!</string>
+    <string name="chose_timer">Chose timer to start or add new!</string>
+    <string name="timer_does_not_start">Timer was not started!</string>
+    <string name="title_string">Title</string>
+    <string name="add_new_cancel_title">Warning!</string>
+    <string name="add_new_cancel_message">Are tou sure to cancel the changes?</string>
+    <string name="main_next_missing">Next interval is missing!</string>
+    <string name="main_previous_missing">Previous interval is missing!</string>
+    <string name="main_interval_list_text">Interval list:</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="main_play_selected_interval">Start the interval</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="add">Add</string>
+    <string name="clear">Clear All</string>
+    <string name="empty_intervals">The interval list is empty!</string>
+</resources>

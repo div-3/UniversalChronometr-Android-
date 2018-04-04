@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorTextGray">#8e8e8e</color>
+    <color name="semi_transparent_colorTextGray">#a68e8e8e</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="semi_transparent_red">#deff2e2e</color>
+    <color name="main_recycler_selected_interval_layout_color">#d0dedede</color>
+    <color name="main_recycler_base_layout_color">#ffffff</color>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main_add_new_timer"
+        android:icon="@drawable/ic_add_alarm_black_24dp"
+        android:title="@string/new_timer" />
+    <item
+        android:id="@+id/main_show_bookmarks"
+        android:icon="@drawable/ic_bookmark_border_black_24dp"
+        android:title="@string/bookmarks"/>
+    <item
+        android:id="@+id/main_show_all_timers"
+        android:icon="@drawable/ic_all_out_black_24dp"
+        android:title="@string/all_timers" />
+    <item
+        android:id="@+id/main_settings"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/settings" />
+
+    <item android:title="@string/communicate">
+        <menu>
+            <item
+                android:id="@+id/main_nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/communicate" />
+            <!--<item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/send" />
+             -->
+        </menu>
+    </item>
+
+</menu>

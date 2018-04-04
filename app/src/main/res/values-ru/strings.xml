@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Универсльный хронометр</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="new_timer">Новый таймер</string>
+    <string name="bookmarks">Частые</string>
+    <string name="all_timers">Все таймеры</string>
+
+    <string name="communicate">Поделиться</string>
+    <string name="send">Отправить</string>
+    <string name="settings">Настройки</string>
+
+    //Техт
+    <string name="hello_world">Привет!</string>
+
+    <string name="autor">Иван Д</string>
+    <string name="e_mail">div-3@mail.ru</string>
+    <string name="text_on_timer_view">Нажмите \"Старт\"</string>
+    <string name="act_add_new_title">Введите название</string>
+    <string name="add_new_comment">Комметарий</string>
+    <string name="intervals">Интервалы:</string>
+    <string name="wrong_intervals">Неправильно заданы интервалы!</string>
+    <string name="wrong_title">Введите название!</string>
+    <string name="chose_timer">Выберите таймер или добавьте новый!</string>
+    <string name="timer_does_not_start">Таймер не запущен!</string>
+    <string name="title_string">Название</string>
+    <string name="add_new_cancel_title">Внимание!</string>
+    <string name="add_new_cancel_message">Вы уверены, что хотите отменить изменения?</string>
+    <string name="main_next_missing">Следующий инетервал отсутсвует!</string>
+    <string name="main_previous_missing">Предыдущий инетервал отсутсвует!</string>
+    <string name="main_interval_list_text">Список интервалов:</string>
+    <string name="ok">Да</string>
+    <string name="cancel">Отмена</string>
+    <string name="main_play_selected_interval">Запустить интервал</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Изменить</string>
+    <string name="add">Добавить</string>
+    <string name="clear">Удалить все</string>
+    <string name="empty_intervals">Список интервалов пуст!</string>
+
+</resources>

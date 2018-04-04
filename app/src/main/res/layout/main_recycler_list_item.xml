@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_list_item"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+        android:id="@+id/main_relative_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent">
+        <TextView
+            android:id="@+id/main_counter_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/main_title_tv"
+            android:layout_width="150dp"
+            android:layout_toRightOf="@id/main_counter_tv"
+            android:layout_marginLeft="8dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/main_duration_tv"
+            android:layout_below="@id/main_title_tv"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/main_direction_iv"
+            android:layout_toRightOf="@id/main_duration_tv"
+            android:layout_below="@id/main_title_tv"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:clickable="false" />
+
+        <ImageView
+            android:id="@+id/main_alarm_iv"
+            android:layout_toRightOf="@id/main_direction_iv"
+            android:layout_below="@id/main_title_tv"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:clickable="false"/>
+
+        <ImageView
+            android:id="@+id/main_go_to_next_iv"
+            android:layout_toRightOf="@id/main_alarm_iv"
+            android:layout_below="@id/main_title_tv"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:clickable="false"/>
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/main_start_selected_interval"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"
+        android:background="@color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:contentDescription="@string/main_play_selected_interval"/>
+</LinearLayout>
