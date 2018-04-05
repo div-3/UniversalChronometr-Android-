@@ -364,7 +364,8 @@ public class IntervalAdapterForAddNew extends RecyclerView.Adapter<IntervalViewH
     public void removeElementBySwipe(int position){
         if(position >= 0 && position <this.getItemCount()) {
             this.intervalList.remove(position);
-            this.notifyDataSetChanged();
+//            this.notifyDataSetChanged();
+            this.notifyItemRemoved(position);
             Log.i(TAG, "removeElementBySwipe: Remove element number: " + position);
         }
     }
