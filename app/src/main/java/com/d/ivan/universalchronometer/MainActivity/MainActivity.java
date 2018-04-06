@@ -3,8 +3,11 @@ package com.d.ivan.universalchronometer.MainActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +15,10 @@ import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +33,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 // Вопросы и комментарии в public class QUESTIONS
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
     //Элементы управления:
     private TextView mainTitle;             //TV с названием таймера
     private TextView mainTimerTextView;     //TV со значением текущего таймера
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
+    private NavigationView navigationView;
 
     //Переменные для фонового потока обновления информации в TV со значением таймера
     private Timer tmr;
@@ -83,8 +89,20 @@ public class MainActivity extends AppCompatActivity {
         mainTitle = (TextView) findViewById(R.id.main_title);
         addNewMenuItem = (MenuView.ItemView) findViewById(R.id.main_add_new_timer);
 
+        //Определение бокового меню
         setSupportActionBar(toolbar);
         context = this;
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        //Специальный класс для размещения пунктов меню в drawer'е
+        navigationView =  (NavigationView) findViewById(R.id.nav_view);
+        //Добавляем слушателя нажатий на пункт списка
+        navigationView.setNavigationItemSelectedListener(this);
+        initHeader();
+
 
         //Создание внешнего статического объекта Таймера-Буффера
         if (!TimerBuffer.isTimerBuffer()) {
@@ -108,16 +126,16 @@ public class MainActivity extends AppCompatActivity {
         startInterval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Если таймер уже запущен, то ничего не делаем
-            if (currentTimer.getCurrentIntervalStatus().equals(GlobalValues.timerStatus.Run)) {return;}
+                //Если таймер уже запущен, то ничего не делаем
+                if (currentTimer.getCurrentIntervalStatus().equals(GlobalValues.timerStatus.Run)) {return;}
 
-            if (TimerCounting.isLoad()) {
-                startTimer();
-            } else {
-                Toast toast = Toast.makeText(getApplicationContext(), getText(R.string.chose_timer), Toast.LENGTH_SHORT);
-                toast.show();
-                return;
-            }
+                if (TimerCounting.isLoad()) {
+                    startTimer();
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), getText(R.string.chose_timer), Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
             }
         });
 
@@ -163,32 +181,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(addNewTimer, ADD_NEW_TIMER);
             }
         });
-
-//        addNewMenuItem.(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //Запуск активити для создания нового таймера
-//                Intent addNewTimer = new Intent(MainActivity.this, AddNewTimerActivity.class);
-//                startActivity(addNewTimer);
-//            }
-//        });
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
+    //Пример работы с элементом бокового меню - Navigation Header, где отображается иконка приложения, мыло и др.
+    private void initHeader(){
+        ImageView imageView = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.navHeaderLogo);
+        TextView nameView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.navHeaderName);
+        TextView emailView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.navHeaderEMail);
+        imageView.setImageResource(R.drawable.ic_logo);
+        nameView.setText("Ivan D");
+        emailView.setText("div-3@mail.ru");
+    }
+
+    // Отрабатываем нажатие на кнопку Назад:
+    // если drawer открыт, то закрываем его, если закрыт - закрываем приложение
+    @Override
+    public void onBackPressed() {
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
 
     @Override
@@ -231,6 +246,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         TimerBuffer.clearTimerBuffer(GlobalValues.activityName.MainActivity);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 
     //Основная задача вывода информации о таймере
