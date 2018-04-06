@@ -206,6 +206,48 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
 
+    // Отрабатываем нажатие на элемент drawer'а
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+//        switch (id){
+//            case R.id.nav_camera:
+//                setNewScreen(EmptyFragment.getInstats(Color.GREEN));
+//                break;
+//            case R.id.nav_gallery:
+//                setNewScreen(EmptyFragment.getInstats(Color.BLUE));
+//                break;
+//            case  R.id.nav_slideshow:
+//                setNewScreen(EmptyFragment.getInstats(Color.MAGENTA));
+//                break;
+//            case  R.id.nav_manage:
+//                setNewScreen(EmptyFragment.getInstats(Color.RED));
+//                break;
+//            case  R.id.nav_share:
+//                BottomTabNavigation.launch(this, HomeScreen.THIRD);
+//                break;
+//            case  R.id.nav_send:
+//                FragmentNavigationActivity.launch(this);
+//                break;
+//        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //закрываем NavigationView
+        //параметр определяет анимацию закрытия
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+//    private void setNewScreen(EmptyFragment fragment){
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.add(R.id.content, fragment);
+//        fragmentTransaction.commit();
+//    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -248,10 +290,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         TimerBuffer.clearTimerBuffer(GlobalValues.activityName.MainActivity);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
-    }
 
     //Основная задача вывода информации о таймере
     class MyTimerTask extends TimerTask {
@@ -287,7 +325,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
             }
         }
     }
-
 
     //Запуск таймера
     public void startTimer() {
