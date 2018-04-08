@@ -253,10 +253,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         super.onResume();
 
         //Создание внешнего статического объекта Таймера
-        if (TimerCounting.isTimerCounting()) {
-            currentTimer = TimerCounting.getTimerCounting();
-        } else {
+        if (currentTimer == null) {
             TimerCounting.createTimerCounting();
+            currentTimer = TimerCounting.getTimerCounting();
+        }
+                if (TimerCounting.isTimerCounting()) {
             currentTimer = TimerCounting.getTimerCounting();
         }
 
@@ -346,6 +347,10 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
     //Обработка нажатия на кнопку "Стоп"
     public void stopTimer(boolean hidden){
+        if (currentTimer == null){
+            TimerCounting.createTimerCounting();
+            currentTimer = TimerCounting.getTimerCounting();
+        }
         if (!currentTimer.getCurrentIntervalStatus().equals(GlobalValues.timerStatus.Stopped)){
             currentTimer.timerStop();           //остановка таймера
         } else {
